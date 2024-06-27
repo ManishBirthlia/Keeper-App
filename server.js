@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const port = process.env.PORT || 3000;
 
-app.use(express.static('client/build'));
+app.use(express.static(path.resolve('./build')));
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname +'/build' + '/index.html');
